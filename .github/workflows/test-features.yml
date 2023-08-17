@@ -1,22 +1,16 @@
-name: Test relevant features
+name: Test features
 on:
   push:
     branches: "main"
-    paths-ignore:
-      - .gitignore
-      - LICENSE
-      - README.md
-      - .gitattributes
-      - .github/**
-      - "!.github/workflows/test-features.yml"
+    paths:
+      - src/*/**
+      - test/*/**
+      - github/workflows/test-features.yml
   pull_request:
-    paths-ignore:
-      - .gitignore
-      - LICENSE
-      - README.md
-      - .gitattributes
-      - .github/**
-      - "!.github/workflows/test-features.yml"
+    paths:
+      - src/*/**
+      - test/*/**
+      - github/workflows/test-features.yml
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
