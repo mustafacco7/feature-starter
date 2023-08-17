@@ -1,4 +1,4 @@
-name: Publish features
+name: Update readmes
 on:
   push:
     branches: "main"
@@ -12,12 +12,26 @@ concurrency:
   group: ${{ github.workflow }}
   cancel-in-progress: true
 jobs:
-  publish-features:
+  list-features:
+    outputs:
+      changed-features: ${{ steps.list-features-outputs.changed-features }}
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      packages: write
     steps:
       - uses: actions/checkout@v3
-      - uses: devcontainers-community/update-feature-readmes@v1
+      - id: list-features
+        uses: devcontainers-community/list-features@v1
+  update-feature-readme:
+    needs: list-features
+    concurrency: ${{ github.workflow }}-write
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.list-features.outputs.changed-features) }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: devcontainers-community/update-feature-readme@v1
+        with:
+          feature-id: ${{ matrix.id }}
       - uses: stefanzweifel/git-auto-commit-action@v4
