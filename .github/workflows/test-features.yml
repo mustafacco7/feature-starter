@@ -18,7 +18,7 @@ concurrency:
 jobs:
   list-features:
     outputs:
-      changed-features: ${{ steps.list-features-outputs.changed-features }}
+      relevant-features: ${{ steps.list-features.outputs.relevant-features }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -28,7 +28,7 @@ jobs:
     needs: list-features
     strategy:
       fail-fast: false
-      matrix: ${{ fromJSON(needs.list-features.outputs.changed-features) }}
+      matrix: ${{ fromJSON(needs.list-features.outputs.relevant-features) }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
