@@ -134,18 +134,6 @@ The provided GitHub Action will also publish a third "metadata" package with jus
 
 '`devcontainers/feature-starter`' is known as the feature collection namespace.
 
-### Marking Feature Public
-
-Note that by default, GHCR packages are marked as `private`.  To stay within the free tier, Features need to be marked as `public`.
-
-This can be done by navigating to the Feature's "package settings" page in GHCR, and setting the visibility to 'public`.  The URL may look something like:
-
-```
-https://github.com/users/<owner>/packages/container/<repo>%2F<featureName>/settings
-```
-
-<img width="669" alt="image" src="https://user-images.githubusercontent.com/23246594/185244705-232cf86a-bd05-43cb-9c25-07b45b3f4b04.png">
-
 ### Adding Features to the Index
 
 If you'd like your Features to appear in our [public index](https://containers.dev/features) so that other community members can find them, you can do the following:
@@ -187,10 +175,43 @@ An example `devcontainer.json` can be found below.
 }
 ```
 
+---
+<!-- REMOVE EVERYTHING THIS LINE AND ABOVE -->
+
+# My awesome Dev Container Features
+
+🤩 My collection of awesome Dev Container Features
+
+<p align=center>
+  <img width=500 src="https://i.imgur.com/7iCBFSC.png">
+</p>
+
+<!-- prettier-ignore-start -->
+<!-- START_FEATURE_LIST -->
+
+<!-- END_FEATURE_LIST -->
+<!-- prettier-ignore-end -->
+
+[↗️ See all features at containers.dev/features]
+
+## Usage
+
+```jsonc
+"features": {
+  "ghcr.io/octocat/my-awesome-features/<feature-id>": {}
+}
+```
+
 ## Development
 
 ![GitHub Actions](https://img.shields.io/static/v1?style=for-the-badge&message=GitHub+Actions&color=2088FF&logo=GitHub+Actions&logoColor=FFFFFF&label=)
 ![Codespaces](https://img.shields.io/static/v1?style=for-the-badge&message=Codespaces&color=181717&logo=GitHub&logoColor=FFFFFF&label=)
 ![Devcontainers](https://img.shields.io/static/v1?style=for-the-badge&message=Devcontainers&color=2496ED&logo=Docker&logoColor=FFFFFF&label=)
+
+To test a specific feature, you can use the [devcontainer CLI]:
+
+```sh
+devcontainer features test -f <feature-id>
+```
 
 Someone with appropriate access must manually trigger the <kbd>Publish features</kbd> workflow to create a new release.
