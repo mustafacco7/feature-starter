@@ -7,19 +7,23 @@ on:
       - LICENSE
       - README.md
       - .gitattributes
+      - .github/**
+      - "!.github/workflows/test-features.yml"
   pull_request:
     paths-ignore:
       - .gitignore
       - LICENSE
       - README.md
       - .gitattributes
+      - .github/**
+      - "!.github/workflows/test-features.yml"
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
   list-features:
     outputs:
-      features: ${{ steps.list-features-outputs.features }}
+      changed-features: ${{ steps.list-features-outputs.changed-features }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -29,7 +33,7 @@ jobs:
     needs: list-features
     strategy:
       fail-fast: false
-      matrix: ${{ toJSON(needs.list-features.outputs.features) }}
+      matrix: ${{ fromJSON(needs.list-features.outputs.changed-features) }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
