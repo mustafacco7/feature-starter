@@ -1,6 +1,6 @@
 # Dev Container Features: Self Authoring Template
 
-> This repo provides a starting point and example for creating your own custom [dev container Features](https://containers.dev/implementors/features/), hosted for free on GitHub Container Registry.  The example in this repository follows the [dev container Feature distribution specification](https://containers.dev/implementors/features-distribution/).  
+> This repo provides a starting point and example for creating your own custom [dev container Features](https://containers.dev/implementors/features/), hosted for free on GitHub Container Registry.  The example in this repository follows the [dev container Feature distribution specification](https://containers.dev/implementors/features-distribution/).
 >
 > To provide feedback to the specification, please leave a comment [on spec issue #70](https://github.com/devcontainers/spec/issues/70). For more broad feedback regarding dev container Features, please see [spec issue #61](https://github.com/devcontainers/spec/issues/61).
 
@@ -52,7 +52,7 @@ my favorite color is green
 
 ## Repo and Feature Structure
 
-Similar to the [`devcontainers/features`](https://github.com/devcontainers/features) repo, this repository has a `src` folder.  Each Feature has its own sub-folder, containing at least a `devcontainer-feature.json` and an entrypoint script `install.sh`. 
+Similar to the [`devcontainers/features`](https://github.com/devcontainers/features) repo, this repository has a `src` folder.  Each Feature has its own sub-folder, containing at least a `devcontainer-feature.json` and an entrypoint script `install.sh`.
 
 ```
 ├── src
@@ -113,13 +113,13 @@ Features are individually versioned by the `version` attribute in a Feature's `d
 
 ### Publishing
 
-> NOTE: The Distribution spec can be [found here](https://containers.dev/implementors/features-distribution/).  
+> NOTE: The Distribution spec can be [found here](https://containers.dev/implementors/features-distribution/).
 >
 > While any registry [implementing the OCI Distribution spec](https://github.com/opencontainers/distribution-spec) can be used, this template will leverage GHCR (GitHub Container Registry) as the backing registry.
 
-Features are meant to be easily sharable units of dev container configuration and installation code.  
+Features are meant to be easily sharable units of dev container configuration and installation code.
 
-This repo contains a **GitHub Action** [workflow](.github/workflows/release.yaml) that will publish each Feature to GHCR. 
+This repo contains a **GitHub Action** [workflow](.github/workflows/release.yaml) that will publish each Feature to GHCR.
 
 *Allow GitHub Actions to create and approve pull requests* should be enabled in the repository's `Settings > Actions > General > Workflow permissions` for auto generation of `src/<feature>/README.md` per Feature (which merges any existing `src/<feature>/NOTES.md`).
 
@@ -144,35 +144,33 @@ If you'd like your Features to appear in our [public index](https://containers.d
 
 This index is from where [supporting tools](https://containers.dev/supporting) like [VS Code Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) and [GitHub Codespaces](https://github.com/features/codespaces) surface Features for their dev container creation UI.
 
-#### Using private Features in Codespaces
+## License
 
-For any Features hosted in GHCR that are kept private, the `GITHUB_TOKEN` access token in your environment will need to have `package:read` and `contents:read` for the associated repository.
+Even though the `LICENSE` file in this repository says "YOUR_NAME", that's just
+to be a good template. It's actually licensed under these terms:
 
-Many implementing tools use a broadly scoped access token and will work automatically.  GitHub Codespaces uses repo-scoped tokens, and therefore you'll need to add the permissions in `devcontainer.json`
+```
+MIT License
 
-An example `devcontainer.json` can be found below.
+Copyright (c) 2022 Microsoft Corporation
 
-```jsonc
-{
-    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-    "features": {
-     "ghcr.io/my-org/private-features/hello:1": {
-            "greeting": "Hello"
-        }
-    },
-    "customizations": {
-        "codespaces": {
-            "repositories": {
-                "my-org/private-features": {
-                    "permissions": {
-                        "packages": "read",
-                        "contents": "read"
-                    }
-                }
-            }
-        }
-    }
-}
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 ```
 
 ---

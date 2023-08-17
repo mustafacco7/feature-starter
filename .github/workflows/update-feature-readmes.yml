@@ -14,29 +14,17 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  list-features:
-    outputs:
-      changed-features: ${{ steps.list-features-outputs.changed-features }}
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - id: list-features
-        uses: devcontainers-community/list-features@v1
-  update-feature-readme:
-    needs: list-features
+  update-feature-readmes:
     concurrency: ${{ github.ref }}-write
     permissions:
       contents: write
-    strategy:
-      fail-fast: false
-      matrix:
-        include: ${{ fromJSON(needs.list-features.outputs.changed-features) }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: devcontainers-community/update-feature-readme@v1
+      - uses: devcontainers/action@v1
         with:
-          path: src/${{ matrix.id }}
+          base-path-to-features: src
+          generate-docs: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: stefanzweifel/git-auto-commit-action@v4
