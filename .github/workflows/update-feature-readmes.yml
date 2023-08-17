@@ -29,7 +29,8 @@ jobs:
       contents: write
     strategy:
       fail-fast: false
-      matrix: ${{ fromJSON(needs.list-features.outputs.changed-features) }}
+      matrix:
+        include: ${{ fromJSON(needs.list-features.outputs.changed-features) }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
