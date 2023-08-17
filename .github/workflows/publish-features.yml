@@ -23,6 +23,6 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       # This just creates a bunch of tarballs and doesn't need the complicated splitting
       # like feature testing does.
-      - run: devcontainer features publish -r ghcr.io -n ${{ github.repository }}
+      - run: devcontainer features publish -r ghcr.io -n ${{ github.repository }} src
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
