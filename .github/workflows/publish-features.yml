@@ -2,13 +2,9 @@ name: Publish features
 on:
   # push:
   #   branches: "main"
-  #   paths-ignore:
-  #     - .gitignore
-  #     - LICENSE
-  #     - README.md
-  #     - .gitattributes
-  #     - .github/**
-  #     - "!.github/workflows/publish-features.yml"
+  #   paths:
+  #     - src/*/**
+  #     - .github/workflows/publish-features.yml
   workflow_dispatch:
 concurrency: ${{ github.workflow }}
 jobs:
