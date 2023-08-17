@@ -186,3 +186,11 @@ An example `devcontainer.json` can be found below.
     }
 }
 ```
+
+## Development
+
+![GitHub Actions](https://img.shields.io/static/v1?style=for-the-badge&message=GitHub+Actions&color=2088FF&logo=GitHub+Actions&logoColor=FFFFFF&label=)
+![Codespaces](https://img.shields.io/static/v1?style=for-the-badge&message=Codespaces&color=181717&logo=GitHub&logoColor=FFFFFF&label=)
+![Devcontainers](https://img.shields.io/static/v1?style=for-the-badge&message=Devcontainers&color=2496ED&logo=Docker&logoColor=FFFFFF&label=)
+
+Someone with Push access must <a href=""><img valign=middle src="https://img.shields.io/static/v1?style=for-the-badge&message=%F0%9F%93%A6+Trigger+publish&color=CB3837&label="></a> to create a new release.
