@@ -10,9 +10,7 @@ on:
       - .github/**
       - "!.github/workflows/publish-features.yml"
   workflow_dispatch:
-concurrency:
-  group: ${{ github.workflow }}
-  cancel-in-progress: true
+concurrency: ${{ github.workflow }}
 jobs:
   publish-features:
     runs-on: ubuntu-latest
