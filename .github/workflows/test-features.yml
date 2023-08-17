@@ -28,7 +28,8 @@ jobs:
     needs: list-features
     strategy:
       fail-fast: false
-      matrix: ${{ fromJSON(needs.list-features.outputs.relevant-features) }}
+      matrix:
+        include: ${{ fromJSON(needs.list-features.outputs.relevant-features) }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
