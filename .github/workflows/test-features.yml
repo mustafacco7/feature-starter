@@ -5,12 +5,12 @@ on:
     paths:
       - src/*/**
       - test/*/**
-      - github/workflows/test-features.yml
+      - .github/workflows/test-features.yml
   pull_request:
     paths:
       - src/*/**
       - test/*/**
-      - github/workflows/test-features.yml
+      - .github/workflows/test-features.yml
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
