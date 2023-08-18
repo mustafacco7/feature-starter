@@ -123,7 +123,8 @@ SOFTWARE.
 <!-- prettier-ignore-start -->
 <!-- START_FEATURE_LIST -->
 
-
+- **My Favorite Color** - A feature to remind you of your favorite color
+- **Hello, World!** - A hello world feature
 
 <!-- END_FEATURE_LIST -->
 <!-- prettier-ignore-end -->
