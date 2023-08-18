@@ -8,10 +8,19 @@
 
 🚀 Perfect for getting off the ground quickly \
 [📖 Learn more about Dev Container Features]() \
-[⬆️ Take me to the <kbd>Publish</kbd> button!]() \
 [📢 Give feedback on Dev Containers](https://github.com/devcontainers/spec/issues/61)
 
 ## Usage
+
+<img align=right src=https://i.imgur.com/woHa37r.png>
+
+**Click <kbd>Use this template</kbd>!** That's the first step. After instantiating this template repo, there are a few things you'll need to do manually:
+
+1. Change the name in the `LICENSE` file to be your name or your organization's name. Right now it's `YOUR_NAME`.
+
+2. Remove the top half of this readme. After reading it of course.
+
+4. Change any of the other readme text to match your own new awesome feature collection. 🚀
 
 Remember how you can use features like this?
 
@@ -54,7 +63,13 @@ a `$VERSION` option that you might use to install a specific version of a tool:
 }
 ```
 
+<img align=right src="https://github.com/devcontainers-community/features-starter/assets/61068799/1bf9753d-9f2c-4afb-afb0-0fd4c763e88a">
+
 📕 You can find some more sample options in the `src/` of the demo features.
+
+To publish your features, just run the <kbd>Publish features</kbd> workflow in the <kbd>Actions</kbd> tab. This will automagically ✨ package and push your Features to `ghcr.io/<you>/<your-repo>/*` so you can use them! You'll even see them appear on the sidebar in the GitHub web UI.
+
+[⬆️ Take me to the <kbd>Publish</kbd> button!]()
 
 After you've created your amazing feature collection, you might want to add it
 to the official index so that it can be listed in autocomplete in tools like VS
@@ -102,7 +117,7 @@ SOFTWARE.
 🤩 My collection of awesome Dev Container Features
 
 <p align=center>
-  <img width=500 src="https://i.imgur.com/7iCBFSC.png">
+  <img width=400 src="https://i.imgur.com/7iCBFSC.png">
 </p>
 
 <!-- prettier-ignore-start -->
