@@ -1,12 +1,12 @@
-name: Update readme
+name: Update main readme
 on:
   push:
     branches: "main"
     paths:
-      - .github/workflows/update-readme.yml
+      - .github/workflows/update-main-readme.yml
   pull_request:
     paths:
-      - .github/workflows/update-readme.yml
+      - .github/workflows/update-main-readme.yml
   schedule:
     # https://crontab.guru/daily
     - cron: "0 0 * * *"
@@ -16,7 +16,7 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  update-readme:
+  update-main-readme:
     concurrency: ${{ github.ref }}-write
     permissions:
       contents: write
