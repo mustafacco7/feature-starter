@@ -48,7 +48,7 @@ a `$VERSION` option that you might use to install a specific version of a tool:
   "options": {
     "version": {
       "type": "string",
-      "default": "latest"
+      "default": "3.6.2"
     }
   }
 }
